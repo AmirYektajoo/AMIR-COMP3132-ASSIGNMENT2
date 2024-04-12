@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee CRUD Application</title>
+  <!-- Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <!-- CSS  -->
+  <link href="https://materializecss.com/dist/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="https://materializecss.com/templates/starter-template/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  
+  <style>
+    main {
+      padding-left: 0px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Side Navigation -->
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">Employee User Management</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Logout</a></li>
+      </ul>
+      <ul id="nav-mobile" class="sidenav" style="transform: translateX(-105%);">
+        <li><a href="#">Logout</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav> 
+
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+      <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+          <br><br>
+          <h1 class="header center orange-text">Hello , world!</h1>
+          <div class="row center">
+            <h5 class="header col s12 light">Your trusted platform for streamlined employer user management solutions. Our comprehensive services empower businesses to efficiently manage user accounts</h5>
+          </div>
+          <div class="row center">
+            <a (click)="AddEmployee($event)" href="#" id="download-button" class="btn-large waves-effect waves-light orange">User Management</a>
+          </div>
+          <br><br>
+        </div>
+      </div>
+
+      <!-- Users Management Section -->
+      <div class="card-content">
+        <table>
+          <thead>
+            <tr>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Email</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let employee of employees">
+              <tr>
+                <td>{{ employee.firstname }} </td>
+                <td>{{ employee.lastname }}</td>
+                <td>{{ employee.email }}</td>
+                <td>
+                  <a (click)="RUpdateEmployee($event, employee)" href="#!">
+                    <i class="material-icons">edit</i>
+                  </a>
+                  <a (click)="DisplayOneEmployee($event, employee)" href="#!">
+                    <i class="material-icons">remove_red_eye</i>
+                  </a>
+                  <a (click)="showDeleteDialog = true; selectedEmployee = employee; deleteEmployee()" >
+                    <i class="material-icons">delete</i>
+                  </a>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+<br><br>
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Employee User Management</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Materialize JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

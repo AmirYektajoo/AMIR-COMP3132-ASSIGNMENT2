@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User CRUD Application</title>
+  <!-- Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  
+
+
+
+  <style>
+  
+  </style>
+</head>
+<body>
+  <!-- Side Navigation -->
+
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Employee User Management
+    </a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Logout</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav" style="transform: translateX(-105%);">
+        <li><a href="#">Logout</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav> 
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+
+        <div class="section no-pad-bot" id="index-banner">
+            <div class="container">
+              <br><br>
+              <h1 class="header center orange-text">User Management!</h1>
+              <div class="row center">
+              </div>
+    
+        
+            </div>
+          </div>
+      <!-- Users Management Section -->
+      <div class="row">
+        <div class="col s12">
+          <!-- Create Form -->
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title">Create Employee</span>
+              <form [formGroup]="employeeForm" (ngSubmit)="addEmployee()" id="create-user-form">
+                <div class="row">
+                  <div class="input-field col s6">
+                    <input formControlName="firstname"  id="firstname" type="text" name="firstname" required>
+                    <label for="firstname">First Name</label>
+                  </div>
+                  <div class="input-field col s6">
+                    <input formControlName="lastname" id="lastname" type="text" name="lastname" required>
+                    <label for="lastname">Last Name</label>
+                  </div>
+                </div>
+
+
+
+                <div class="row">
+                  <div class="input-field col s6">
+                    <input formControlName="email" id="email" type="email" name="email" required>
+                    <label for="email">Email</label>
+                  </div>
+
+
+                  <div class="input-field col s6">
+                    <input formControlName="gender" id="gender" type="text" name="gender">
+                    <label for="gender">gender</label>
+                  </div>
+
+
+                </div>
+                <div class="row">
+                  <div class="input-field col s6">
+                    <input formControlName="salary" id="salary" type="number" name="salary" required>
+                    <label for="salary">Salary</label>
+                  </div>
+                </div>
+                <button class="btn waves-effect waves-light orange" type="submit" >Create
+                  <i class="material-icons right">send</i>
+                </button>
+              </form>
+              <p *ngIf="errorMessage" class="text-danger small mt-1">{{ errorMessage }}</p>
+              <p *ngIf="successMessage" class="text-success small mt-1">{{ successMessage }}</p>
+
+            </div>
+          </div>
+          <!-- Users List -->
+         
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+            <h5 class="white-text">Employee User Management</h5>
+            <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+        </div>
+    
+ 
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('select');
+  var instances = M.FormSelect.init(elems, options);
+});
+
+// on load
+  $(document).ready(function(){
+  $('select').formSelect();
+});
+      
+</script>
+  <!-- Materialize JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+
+
+   <!--  Scripts-->
+  </body>
+</html>
